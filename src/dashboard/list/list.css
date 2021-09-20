@@ -1,0 +1,89 @@
+.dashmain {
+    width: calc(100% - 300px);
+    height: 100vh;
+    margin-left: auto;
+}
+.list-wraper {
+    padding: 20px;
+    max-width:1200px;
+}
+.list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.list-table th {
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+}
+.list-table td input{
+    border: none;
+    width: 70px;
+}
+.list-table th, .list-table td {
+    border: 1px solid #ddd;
+}
+.list-table tbody tr:nth-child(even){
+    background-color: #eaeaea;
+}
+/* .list-table tbody tr:hover {
+    background-color: lightgray;
+} */
+
+.alone-table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.alone-table th, .alone-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+.alone-table th {
+    background-color: darkblue;
+    color: white;
+    padding: 5px 15px;
+}
+.alone-table input {
+    border: none;
+}
+.alone-table td:hover {
+    background-color: lightgray;
+}
+.create-list-excel-button {
+  width: 100%;    
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.create-list-select, .cNumber {
+    width: 100%;
+    border: none;
+}
+#createListAddButton {
+    width: 100%;
+    border: none;
+    background-color: #ddd;
+}
+.list-table-save {
+    margin-top: 50px;
+}
+.list-table-save tbody td button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+.list-table td input {
+    width: 100%;
+}
+.save-orders-button {
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
