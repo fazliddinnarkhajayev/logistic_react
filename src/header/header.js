@@ -18,7 +18,7 @@ function Header() {
 
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getitems')
+            let response = await axios.get('https://logictic.herokuapp.com/getitems')
              changeItems(response.data)
           })()
      }, [])
@@ -26,14 +26,14 @@ function Header() {
      
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getsuppliers')
+            let response = await axios.get('https://logictic.herokuapp.com/getsuppliers')
             changeSuppliers(response.data)
           })()
      }, [])
 
      useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getclients')
+            let response = await axios.get('https://logictic.herokuapp.com/getclients')
             changeClients(response.data)
           })()
      }, [])

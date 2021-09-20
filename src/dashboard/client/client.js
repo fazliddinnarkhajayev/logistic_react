@@ -33,7 +33,7 @@ function Client() {
 
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getclients')
+            let response = await axios.get('https://logictic.herokuapp.com/getclients')
             changeClients(response.data)
           })()
      }, [])
@@ -49,7 +49,7 @@ function Client() {
                      <form onInput={ async () => {
                         let name = document.getElementById('searchItem')
                             name = name.value ? document.getElementById('searchItem').value.toUpperCase(): null
-                        let response = await axios.get(`http://localhost:5000/searchclient/${name}`)
+                        let response = await axios.get(`https://logictic.herokuapp.com/searchclient/${name}`)
                         changeClients(response.data)
                      }
                     }>
@@ -77,7 +77,7 @@ function Client() {
                                           clientComment: comment.value
                                 }
                                 form.reset()
-                                axios.post(`http://localhost:5000/createclient`, obj)
+                                axios.post(`https://logictic.herokuapp.com/createclient`, obj)
                                 .then( response => {
                                   console.log(response)
                                 });
@@ -112,7 +112,7 @@ function Client() {
                              <td className="c-button-td">
                            <button  onClick={ async(evt) => {
                                 let deleteId = evt.target.id
-                                let response = await axios.get(`http://localhost:5000/editclient/${deleteId}`)
+                                let response = await axios.get(`https://logictic.herokuapp.com/editclient/${deleteId}`)
                                 changeEditState(response.data)
                           let editId = document.getElementById('editId')
                           let editName = document.getElementById('editName')
@@ -158,7 +158,7 @@ function Client() {
                       }
 
                       form.reset()
-                      axios.post(`http://localhost:5000/updateclient`, editObject)
+                      axios.post(`https://logictic.herokuapp.com/updateclient`, editObject)
                       .then( response => {
                         console.log(response)
                       })
@@ -188,7 +188,7 @@ function Client() {
                             <td>
                                 <button className="edit-delete-button" type="button" onClick={() => {
                                        let editId = document.getElementById('editId')
-                                       axios.post(`http://localhost:5000/deleteclient`, {id: editId.placeholder})
+                                       axios.post(`https://logictic.herokuapp.com/deleteclient`, {id: editId.placeholder})
                                        .then( response => {
                                          console.log(response)
                                        })

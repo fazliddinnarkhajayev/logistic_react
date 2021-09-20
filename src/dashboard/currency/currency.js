@@ -34,7 +34,7 @@ function Item() {
 
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getcurrencies')
+            let response = await axios.get('https://logictic.herokuapp.com/getcurrencies')
             changeCurrencies(response.data)
           })()
      }, [])
@@ -52,7 +52,7 @@ function Item() {
                         let name = document.getElementById('searchItem')
                             name = name.value ? document.getElementById('searchItem').value: null
 
-                        let response = await axios.get(`http://localhost:5000/searchcurrency/${name}`)
+                        let response = await axios.get(`https://logictic.herokuapp.com/searchcurrency/${name}`)
                         changeCurrencies(response.data)
                         console.log(response.data)
                      }
@@ -82,7 +82,7 @@ function Item() {
                                         currencyComment: comment.value
                               }
                               form.reset()
-                              axios.post(`http://localhost:5000/createcurrency`, obj)
+                              axios.post(`https://logictic.herokuapp.com/createcurrency`, obj)
                               .then( response => {
                                 console.log(response)
                               });
@@ -119,7 +119,7 @@ function Item() {
                                <button  onClick={ async(evt) => {
                                     let deleteId = evt.target.id
                                     console.log(deleteId)
-                                    let response = await axios.get(`http://localhost:5000/editcurrency/${deleteId}`)
+                                    let response = await axios.get(`https://logictic.herokuapp.com/editcurrency/${deleteId}`)
                                     changeEditState(response.data)
                               let editId = document.getElementById('editId')
                               let editName = document.getElementById('editName')
@@ -165,7 +165,7 @@ function Item() {
                       }
 
                       form.reset()
-                      axios.post(`http://localhost:5000/updatecurrency`, editObject)
+                      axios.post(`https://logictic.herokuapp.com/updatecurrency`, editObject)
                       .then( response => {
                         console.log(response)
                       })
@@ -195,7 +195,7 @@ function Item() {
                             <td>
                                 <button className="edit-delete-button" type="button" onClick={() => {
                                        let editId = document.getElementById('editId')
-                                       axios.post(`http://localhost:5000/deletecurrency`, {id: editId.placeholder})
+                                       axios.post(`https://logictic.herokuapp.com/deletecurrency`, {id: editId.placeholder})
                                        .then( response => {
                                          console.log(response)
                                        })

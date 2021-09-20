@@ -33,21 +33,21 @@ function Container() {
 
     useEffect( () => {
       ;(async () => {
-          let response = await axios.get('http://localhost:5000/getcontainer')
+          let response = await axios.get('https://logictic.herokuapp.com/getcontainer')
            changeContainer(response.data)
         })()
    }, [])
 
    useEffect( () => {
     ;(async () => {
-        let response = await axios.get('http://localhost:5000/getvehicletypes')
+        let response = await axios.get('https://logictic.herokuapp.com/getvehicletypes')
         changeVehicles(response.data)
       })()
  }, [])
 
  useEffect( () => {
     ;(async () => {
-        let response = await axios.get('http://localhost:5000/getcurrencies')
+        let response = await axios.get('https://logictic.herokuapp.com/getcurrencies')
         changeCurrencies(response.data)
       })()
  }, [])
@@ -70,7 +70,7 @@ function Container() {
                        let supplier = document.getElementById('searchSupplier')
                            supplier = supplier.value ? supplier.value : null
 
-                       let response = await axios.get(`http://localhost:5000/searchcont/${contact}/${type}/${supplier}`)
+                       let response = await axios.get(`https://logictic.herokuapp.com/searchcont/${contact}/${type}/${supplier}`)
                        changeContainer(response.data)
                      }}>
                      <div className="search-wrapper">
@@ -106,7 +106,7 @@ function Container() {
                                       containerComment: comment.value
                                     }
                                     form.reset()
-                                    axios.post(`http://localhost:5000/createcontainer`, obj)
+                                    axios.post(`https://logictic.herokuapp.com/createcontainer`, obj)
                                     .then( response => {
                                     //   console.log(response)
                                     });
@@ -209,7 +209,7 @@ function Container() {
                            
                             <button onClick={ async(evt) => {
                                 let deleteId = evt.target.id
-                                let response = await axios.get(`http://localhost:5000/editcont/${deleteId}`)
+                                let response = await axios.get(`https://logictic.herokuapp.com/editcont/${deleteId}`)
                                 changeEditState(response.data)
 
                              
@@ -273,7 +273,7 @@ function Container() {
                       }
 
                       form.reset()
-                      axios.post(`http://localhost:5000/editcontainer`, editObject)
+                      axios.post(`https://logictic.herokuapp.com/editcontainer`, editObject)
                       .then( response => {
                         console.log(response)
                       })
@@ -319,7 +319,7 @@ function Container() {
                             <td>
                                 <button className="edit-delete-button" type="button" onClick={() => {
                                        let editId = document.getElementById('editId')
-                                       axios.post(`http://localhost:5000/deletecontainer`, {id: editId.placeholder})
+                                       axios.post(`https://logictic.herokuapp.com/deletecontainer`, {id: editId.placeholder})
                                        .then( response => {
                                          console.log(response)
                                        })

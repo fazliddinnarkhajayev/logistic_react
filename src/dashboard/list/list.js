@@ -52,7 +52,7 @@ let oldOrders =  JSON.parse(localStorage.getItem('orders'))
 
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getsuppliers')
+            let response = await axios.get('https://logictic.herokuapp.com/getsuppliers')
             changeSuppliers({
                 isFetched: true,
                 data: response.data,
@@ -63,28 +63,28 @@ let oldOrders =  JSON.parse(localStorage.getItem('orders'))
 // console.log(suppliers.data)
      useEffect( () => {
         ;(async () => {
-            let resp = await axios.get('http://localhost:5000/getitems')
+            let resp = await axios.get('https://logictic.herokuapp.com/getitems')
             changeItems(resp.data)
         })()        
      }, [])
 
      useEffect( () => {
         ;(async () => {
-            let res = await axios.get('http://localhost:5000/getclients')
+            let res = await axios.get('https://logictic.herokuapp.com/getclients')
             changeClients(res.data)
         })()      
      }, [])
 
      useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getcontainer')
+            let response = await axios.get('https://logictic.herokuapp.com/getcontainer')
             changeContainers(response.data)
         })()     
      }, [])
 
      useEffect( () => {
         ;(async () => {
-            let responses = await axios.get('http://localhost:5000/getstatuses')
+            let responses = await axios.get('https://logictic.herokuapp.com/getstatuses')
             changeStatuses(responses.data)
           })()
      }, [])
@@ -339,7 +339,7 @@ let oldOrders =  JSON.parse(localStorage.getItem('orders'))
                         status: statusValue.value,
                     }
 
-                axios.post(`http://localhost:5000/createload`, obj)
+                axios.post(`https://logictic.herokuapp.com/createload`, obj)
                 .then( response => {
                   console.log(response)
                 });

@@ -32,7 +32,7 @@ function Status() {
 
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getstatuses')
+            let response = await axios.get('https://logictic.herokuapp.com/getstatuses')
             changeStatuses(response.data)
           })()
      }, [])
@@ -49,7 +49,7 @@ function Status() {
                         let name = document.getElementById('searchItem')
                             name = name.value ? document.getElementById('searchItem').value: null
 
-                        let response = await axios.get(`http://localhost:5000/searchstatus/${name}`)
+                        let response = await axios.get(`https://logictic.herokuapp.com/searchstatus/${name}`)
                         changeStatuses(response.data)
                         console.log(response.data)
                      }
@@ -78,7 +78,7 @@ function Status() {
                                        statusComment: comment.value
                                   }
                                   form.reset()
-                                  axios.post(`http://localhost:5000/createstatus`, obj)
+                                  axios.post(`https://logictic.herokuapp.com/createstatus`, obj)
                                   .then( response => {
                                     console.log(response)
                              });
@@ -113,7 +113,7 @@ function Status() {
                            <td className="c-button-td">
                            <button  onClick={ async(evt) => {
                                 let deleteId = evt.target.id
-                                let response = await axios.get(`http://localhost:5000/editstatus/${deleteId}`)
+                                let response = await axios.get(`https://logictic.herokuapp.com/editstatus/${deleteId}`)
                                 changeEditState(response.data)
                           let editId = document.getElementById('editId')
                           let editName = document.getElementById('editName')
@@ -159,7 +159,7 @@ function Status() {
                       }
 
                       form.reset()
-                      axios.post(`http://localhost:5000/updatestatus`, editObject)
+                      axios.post(`https://logictic.herokuapp.com/updatestatus`, editObject)
                       .then( response => {
                         console.log(response)
                       })
@@ -189,7 +189,7 @@ function Status() {
                             <td>
                                 <button className="edit-delete-button" type="button" onClick={() => {
                                        let editId = document.getElementById('editId')
-                                       axios.post(`http://localhost:5000/deletestatus`, {id: editId.placeholder})
+                                       axios.post(`https://logictic.herokuapp.com/deletestatus`, {id: editId.placeholder})
                                        .then( response => {
                                          console.log(response)
                                        })

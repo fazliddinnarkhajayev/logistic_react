@@ -33,7 +33,7 @@ function Vehicle() {
   
     useEffect( () => {
         ;(async () => {
-            let response = await axios.get('http://localhost:5000/getvehicletypes')
+            let response = await axios.get('https://logictic.herokuapp.com/getvehicletypes')
             changeVehicles(response.data)
           })()
      }, [])
@@ -49,7 +49,7 @@ function Vehicle() {
                         let name = document.getElementById('searchItem')
                             name = name.value ? document.getElementById('searchItem').value.toUpperCase(): null
 
-                        let response = await axios.get(`http://localhost:5000/searchvehicletypes/${name}`)
+                        let response = await axios.get(`https://logictic.herokuapp.com/searchvehicletypes/${name}`)
                         changeVehicles(response.data)
                      }
                     }>
@@ -77,7 +77,7 @@ function Vehicle() {
                                         vehicleTypeComment: comment.value
                                  }
                                  form.reset()
-                                 axios.post(`http://localhost:5000/createvehicletype`, obj)
+                                 axios.post(`https://logictic.herokuapp.com/createvehicletype`, obj)
                                  .then( response => {
                                    console.log(response)
                                  });
@@ -112,7 +112,7 @@ function Vehicle() {
                            <td className="c-button-td">
                            <button  onClick={ async(evt) => {
                                 let deleteId = evt.target.id
-                                let response = await axios.get(`http://localhost:5000/editvehicletypes/${deleteId}`)
+                                let response = await axios.get(`https://logictic.herokuapp.com/editvehicletypes/${deleteId}`)
                                 changeEditState(response.data)
                           let editId = document.getElementById('editId')
                           let editName = document.getElementById('editName')
@@ -159,7 +159,7 @@ console.log(response.data)
                       }
 
                       form.reset()
-                      axios.post(`http://localhost:5000/updatevehicletypes`, editObject)
+                      axios.post(`https://logictic.herokuapp.com/updatevehicletypes`, editObject)
                       .then( response => {
                         console.log(response)
                       })
@@ -189,7 +189,7 @@ console.log(response.data)
                             <td>
                                 <button className="edit-delete-button" type="button" onClick={() => {
                                        let editId = document.getElementById('editId')
-                                       axios.post(`http://localhost:5000/deletevehicletypes`, {id: editId.placeholder})
+                                       axios.post(`https://logictic.herokuapp.com/deletevehicletypes`, {id: editId.placeholder})
                                        .then( response => {
                                          console.log(response)
                                        })
