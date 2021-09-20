@@ -9,7 +9,7 @@ function Table() {
 
  useEffect( () => {
     ;(async () => {
-        let response = await axios.get('https:/logictic.herokuapp.com/getloads')
+        let response = await axios.get('https://logictic.herokuapp.com/getloads')
         setLoads(response.data)
       })()
  }, [])
